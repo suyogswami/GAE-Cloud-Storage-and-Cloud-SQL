@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Number of earthquakes per week</title>
+</head>
+<body>
+<center>
+{% for guest in guestlist %}
+{% if loop.index0==0 %}
+<br /> <b>Number of earthquakes in week: </b> <b>&nbsp{{ guest['Week'] }}</b>
+<table style="border: 1px solid black">
+<tbody>    
+{% endif %}
+{% endfor %}
+<tr>
+<th style="background-color: #CCFFCC; margin: 5px">Magnitude</th>
+<th style="background-color: #CCFFCC; margin: 5px">Count</th>
+</tr>
+{% for guest in guestlist %}
+{% if guest|length!=0%}
+<tr>
+<td>{{ guest['Magnitude'] }}</td>
+<td>{{ guest['Count'] }}</td>
+</tr>
+{% endif %}
+{% endfor %}
+</tbody>
+</table>
+<br />
+</center>
+</body>
+</html>
